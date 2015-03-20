@@ -3,7 +3,7 @@
 
 /*mixins, variables, etc.*/
 $grayMediumLight: #eaeaea;
-
+$grayLight: #c0c0c0;
 /*universal*/
 html {
 	overflow-y: scroll;
@@ -168,10 +168,9 @@ input {
 	li {
 		overflow: auto;
 		padding: 10px 0;
-		border-top: 1px solid grayLighter;
+		border-top: 1px solid $grayLight;
 		&:last-child {
-			border-bottom: 1px solid grayLighter;
+			border-bottom: 1px solid $grayLight;
 		}
 	}
 }
-
