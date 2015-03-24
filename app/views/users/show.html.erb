@@ -6,7 +6,16 @@
 			<%= @user.name %>
 		</h1>
 	</aside>
-	<p>
+	<div class="span8">
+		<% if @user.songs.any? %>
+		<h3>Songs(<%= @user.songs.count %>)</h3>
+		<ul class="songs" >
+			<%= render @songs %>
+		</ul>
+		<%= will_paginate @songs %>
+		<% end %>
+	</div>
+	<p style="float:right" >
 		<%= link_to "Sign out", signout_path %>
 	</p>
 </div>

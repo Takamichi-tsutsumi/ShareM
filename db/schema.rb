@@ -11,18 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150317150940) do
+ActiveRecord::Schema.define(version: 20150324141643) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "songs", force: :cascade do |t|
+    t.string   "title"
+    t.binary   "upload_file"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "author"
+  end
+
+  add_index "songs", ["user_id", "created_at"], name: "index_songs_on_user_id_and_created_at", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
     t.string   "password_digest"
     t.string   "remember_token"
+    t.boolean  "admin",            default: false
+    t.string   "upload_file_name"
+    t.binary   "upload_file"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

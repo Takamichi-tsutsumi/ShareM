@@ -1,0 +1,6 @@
+<li>
+	<%= @song.title %>
+	written by <%= User.find( @song.user_id ) %>
+	uploaded at <%= @user.created_at.to_s %>
+	<%  %>
+</li>

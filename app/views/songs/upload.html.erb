@@ -1,0 +1,12 @@
+<% provide(:title, "Upload") %>
+<h1>Upload Song</h1>
+
+<%= form_for(@song) do |f| %>
+  <%= f.label :title, "Title" %>
+  <%= f.text_field :title %>
+  <%= f.label :author %>
+  <%= f.text_field :author %>
+  <%= f.label :data, "Song file" %>
+  <%= f.file_field :data %>
+  <%= f.submit 'Upload!!', class: "btn btn-large btn-primary" %>
+<% end %>
